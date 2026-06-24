@@ -1,0 +1,24 @@
+# uv virtual environment
+.venv/
+
+# DuckDB database files
+*.duckdb
+*.duckdb.wal
+
+# Generated data (raw Parquet files)
+data/
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# dbt files (ignore compiled models and logs)
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# System/IDE configuration
+.DS_Store
+.vscode/
+.idea/
