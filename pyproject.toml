@@ -10,6 +10,7 @@ dependencies = [
     "faker>=40.23.0",
     "pandas>=2.3.3",
     "prefect>=3.7.5",
+    "psutil>=7.2.2",
     "pyarrow>=24.0.0",
 ]
 
