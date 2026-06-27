@@ -12,3 +12,6 @@ dependencies = [
     "prefect>=3.7.5",
     "pyarrow>=24.0.0",
 ]
+
+[tool.ruff]
+line-length = 120

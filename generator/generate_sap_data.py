@@ -27,9 +27,7 @@ def create_directory(
 
 def generate_customers(
     num_records: int, fake: Faker
-) -> list[
-    dict
-]:  # in this case "-> list[dict]" means that function have to return list of dictionaries
+) -> list[dict]:  # in this case "-> list[dict]" means that function have to return list of dictionaries
     """
     Generate a list of dictionaries, each representing a single customer.
     """
@@ -47,9 +45,7 @@ def generate_customers(
             "created_at": fake.past_date(),
         }
 
-        customers.append(
-            customer
-        )  # append adding new element (dict in this case) at the end of the list
+        customers.append(customer)  # append adding new element (dict in this case) at the end of the list
 
     return customers  # returns new list with 1000 fake dicts
 
@@ -97,9 +93,7 @@ def generate_orders(num_records: int, num_customers: int, fake: Faker) -> list[d
     return orders
 
 
-def generate_order_items(
-    num_records: int, num_orders: int, num_products: int
-) -> list[dict]:
+def generate_order_items(num_records: int, num_orders: int, num_products: int) -> list[dict]:
     """
     Generate a list of dictionaries, each representing a single item from order.
     """
