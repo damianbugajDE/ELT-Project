@@ -72,7 +72,8 @@ elt-project/
 ├── generate_data.py        # Script 1: Data generator
 ├── load_data.py            # Script 2: Load data to DuckDB
 ├── warehouse.duckdb        # Physical database file (created after running Step 2)
-```
 ├── pyproject.toml          # Project configuration and Ruff rules
 ├── uv.lock                 # Locked exact dependency versions
 └── README.md               # This file
+
+```
