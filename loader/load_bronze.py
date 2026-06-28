@@ -103,7 +103,7 @@ def main() -> None:
     """
     Main execution flow for the database loading process.
     """
-    print(f"--- Process Started ---")
+    print("--- Process Started ---")
     print(f"Initial RAM usage: {get_memory_usage()} MB\n")
 
     print(f"Connecting to DuckDB database at '{DB_PATH}'...")
@@ -117,14 +117,14 @@ def main() -> None:
 
     # close connection
     conn.close()
-    print(f"Database connection closed.")
+    print("Database connection closed.")
 
     # check the size of saved file
     get_db_size(DB_PATH)
 
     # Check memory usage RAM at the end
     print(f"Final RAM usage: {get_memory_usage()} MB")
-    print(f"---Process Finished---")
+    print("---Process Finished---")
 
 
 if __name__ == "__main__":
