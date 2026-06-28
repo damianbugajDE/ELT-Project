@@ -3,7 +3,6 @@ import duckdb
 from loader.load_bronze import load_tables
 from prefect import flow, task
 
-# DB_PATH should be defined in one place
 DB_PATH = "warehouse.duckdb"
 
 
@@ -15,9 +14,10 @@ def run_loading():
 
 @flow(name="ELT Bronze Flow")
 def main():
-    print("Running process ELT in refect Cloud!")
-    run_loading()
+    print("Starting ELT process...")
+    run_loading()  # Flow tylko wywołuje taska
 
 
 if __name__ == "__main__":
-    main()
+    # Używamy serve, aby "wystawić" przepływ do Prefect Cloud
+    main.serve(name="elt-bronze-deployment")
