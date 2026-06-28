@@ -52,6 +52,13 @@ def setup_database(conn: duckdb.DuckDBPyConnection) -> None:
     print("Database constraints applied: memory_limit-'200MB', threads=2.")
 
 
+def load_single_table(conn: duckdb.DuckDBPyConnection, table_name: str) -> None:
+    """Loads a single Parquet file into DuckDB."""
+    file_path = f"{BRONZE_DIR}/{table_name}.parquet"
+    query = f"CREATE OR REPLACE TABLE raw_{table_name} AS SELECT * FROM read_parquet('{file_path}');"
+    conn.execute(query)
+
+
 def load_tables(conn: duckdb.DuckDBPyConnection) -> None:
     """
     Iterate over the defined tables, load data from Parquet files into DuckDB,
@@ -59,6 +66,9 @@ def load_tables(conn: duckdb.DuckDBPyConnection) -> None:
     """
 
     for table_name in TABLES:
+        # Here you can add logs of time and memory usage if you need
+        load_single_table(conn, table_name)
+
         # create exact address of table
         file_path = f"{BRONZE_DIR}/{table_name}.parquet"
 

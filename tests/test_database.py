@@ -3,7 +3,7 @@ import os
 import duckdb
 import pandas as pd
 
-from loader.load_bronze import DB_PATH, load_tables
+from loader.load_bronze import DB_PATH, load_single_table
 
 
 def test_customers_table_has_data():
@@ -21,20 +21,18 @@ def test_customers_table_has_data():
     conn = duckdb.connect(DB_PATH)
 
     # Run load function
-    load_tables(conn)
+    load_single_table(conn, "customers")
 
     # Checking status of the table
-    cursor = conn.execute("SELECT COUNT(*) FROM raw_customers")
     row = cursor.fetchone()
-    result = row[0] if row else 0
+    count = row[0] if row else 0
 
-    # Assertion of this table which must have at least 1 record
-    assert result > 0, "Table raw_customers is empty!"
+    assert count == 2, f"Expected 2 records, but found {count}"
 
     # cleaning
     conn.close()
-    if os.path.exists(DB_PATH):
-        os.remove(DB_PATH)
+    os.remove(DB_PATH)
+    os.remove("data/bronze/customers.parquet")
 
 
 def test_database_file_created():
