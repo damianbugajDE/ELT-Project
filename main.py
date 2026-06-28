@@ -15,9 +15,9 @@ def run_loading():
 @flow(name="ELT Bronze Flow")
 def main():
     print("Starting ELT process...")
-    run_loading()  # Flow tylko wywołuje taska
+    run_loading()  # Flow calls task only
 
 
 if __name__ == "__main__":
-    # Używamy serve, aby "wystawić" przepływ do Prefect Cloud
+    # Use serve to present flow to Prefect Cloud
     main.serve(name="elt-bronze-deployment")
