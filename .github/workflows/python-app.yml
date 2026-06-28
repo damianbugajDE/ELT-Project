@@ -31,6 +31,7 @@ jobs:
 
     - name: Format check with Ruff
       run: uv run ruff format --check .
-
+    - name: Debug file structure
+      run: ls -R
     - name: Test with pytest
-      run: uv run pytest
+      run: uv run env PYTHONPATH=. python -m pytest
