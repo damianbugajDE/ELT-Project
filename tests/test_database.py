@@ -35,7 +35,7 @@ def test_database_file_created():
     """Check if file of database exists after the operation is done"""
     open(DB_PATH, "a").close()
 
-    assert os.path.exists(DB_PATH) == True
+    assert os.path.exists(DB_PATH)
 
     # cleaning
     os.remove(DB_PATH)
