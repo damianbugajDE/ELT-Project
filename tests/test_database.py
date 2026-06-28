@@ -24,6 +24,7 @@ def test_customers_table_has_data():
     load_single_table(conn, "customers")
 
     # Checking status of the table
+    cursor = conn.execute("SELECT COUNT(*) FROM raw_customers")
     row = cursor.fetchone()
     count = row[0] if row else 0
 
