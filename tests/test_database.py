@@ -1,7 +1,6 @@
 import os
 
 import duckdb
-import pytest
 
 from loader.load_bronze import DB_PATH, load_tables
 
