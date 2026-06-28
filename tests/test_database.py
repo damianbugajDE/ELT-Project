@@ -1,12 +1,18 @@
 import os
 
 import duckdb
+import pandas as pd
 
 from loader.load_bronze import DB_PATH, load_tables
 
 
 def test_customers_table_has_data():
     """Test checking, if table raw_customers has records after load."""
+    # Mock of creating parquet file for CI ACtion tests
+    os.makedirs("data/bronze", exist_ok=True)
+    df = pd.DataFrame({"id": [1, 2], "name": ["Test", "User"]})
+    df.to_parquet("data/bronze/customers.parquet")
+
     # check if file of database doesn't exists before test
     if os.path.exists(DB_PATH):
         os.remove(DB_PATH)
