@@ -1,0 +1,9 @@
+dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '/home/dbugaj/ELT-Project/warehouse.duckdb' 
+      threads: 4
+      extensions:
+        - parquet
