@@ -14,30 +14,44 @@ The project was built following **SOLID** and **KISS** principles.
 
 ---
 
+## 🐧 System Requirements (Ubuntu 22.04)
+
+This project was developed and tested on **Ubuntu 22.04 LTS (Jammy Jellyfish)**. We highly recommend running it in this environment (natively, via WSL2, or in a Docker container).
+
+If you are setting up a fresh Ubuntu 22.04 system, prepare it by opening your terminal and running the following commands:
+
+```bash
+# 1. Update your system
+sudo apt update && sudo apt upgrade -y
+
+# 2. Install essential tools and Python
+# (Ubuntu 22.04 comes with Python 3.10 by default)
+sudo apt install -y git curl python3 build-essential
+
 # ⚙️ Quick Start (Installation)
 
 Follow the instructions below to get the project up and running on your local machine.
 
-## 1. Clone the repository
+## 3. Clone the repository
 Open your terminal and download the code:
 ```bash
 git clone https://github.com/damianbugajDE/ELT-Project
 cd elt-project
 ```
 
-## 2. Install the uv package manager (if you don't have it)
+## 4. Install the uv package manager (if you don't have it)
 This project uses uv for lightning-fast dependency management. If it's not installed yet, use the following command:
 
 Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 Windows (PowerShell): `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
-## 3. Create the environment and install dependencies
+## 5. Create the environment and install dependencies
 Thanks to the pyproject.toml and uv.lock files, recreating the exact environment takes just one command. In the project root directory, run:
 
 `uv sync`
 
-## 4. Activate the virtual environment
+## 6. Activate the virtual environment
 To run the scripts, you need to activate the created environment:
 
 ### Windows: 
@@ -45,6 +59,29 @@ To run the scripts, you need to activate the created environment:
 
 ### Mac/Linux: 
 `source .venv/bin/activate`
+
+---
+
+## ☁️ AWS CLI Setup & Configuration
+
+Since this project interacts with AWS S3 for the Data Lake layer, you need to have the AWS Command Line Interface (CLI) installed and configured on your machine.
+
+### 1. Install AWS CLI (Ubuntu 22.04)
+Run the following commands in your terminal to download and install the latest AWS CLI version:
+
+```bash
+# Install unzip if you don't have it
+sudo apt install -y unzip
+
+# Download and install AWS CLI
+curl "[https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip](https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip)" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Clean up installation files
+rm -rf aws awscliv2.zip
+
+---
 
 ### 🚀 Running the Data Pipeline
 The pipeline execution consists of two main steps.
