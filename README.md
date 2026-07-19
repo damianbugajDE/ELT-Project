@@ -14,6 +14,20 @@ The project was built following **SOLID** and **KISS** principles.
 
 ---
 
+## 🐧 System Requirements (Ubuntu 22.04)
+
+This project was developed and tested on **Ubuntu 22.04 LTS (Jammy Jellyfish)**. We highly recommend running it in this environment (natively, via WSL2, or in a Docker container).
+
+If you are setting up a fresh Ubuntu 22.04 system, prepare it by opening your terminal and running the following commands:
+
+```bash
+# 1. Update your system
+sudo apt update && sudo apt upgrade -y
+
+# 2. Install essential tools and Python
+# (Ubuntu 22.04 comes with Python 3.10 by default)
+sudo apt install -y git curl python3 build-essential
+
 # ⚙️ Quick Start (Installation)
 
 Follow the instructions below to get the project up and running on your local machine.
