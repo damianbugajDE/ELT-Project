@@ -32,26 +32,26 @@ sudo apt install -y git curl python3 build-essential
 
 Follow the instructions below to get the project up and running on your local machine.
 
-## 1. Clone the repository
+## 3. Clone the repository
 Open your terminal and download the code:
 ```bash
 git clone https://github.com/damianbugajDE/ELT-Project
 cd elt-project
 ```
 
-## 2. Install the uv package manager (if you don't have it)
+## 4. Install the uv package manager (if you don't have it)
 This project uses uv for lightning-fast dependency management. If it's not installed yet, use the following command:
 
 Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 Windows (PowerShell): `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
-## 3. Create the environment and install dependencies
+## 5. Create the environment and install dependencies
 Thanks to the pyproject.toml and uv.lock files, recreating the exact environment takes just one command. In the project root directory, run:
 
 `uv sync`
 
-## 4. Activate the virtual environment
+## 6. Activate the virtual environment
 To run the scripts, you need to activate the created environment:
 
 ### Windows: 
