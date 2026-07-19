@@ -60,6 +60,29 @@ To run the scripts, you need to activate the created environment:
 ### Mac/Linux: 
 `source .venv/bin/activate`
 
+---
+
+## ☁️ AWS CLI Setup & Configuration
+
+Since this project interacts with AWS S3 for the Data Lake layer, you need to have the AWS Command Line Interface (CLI) installed and configured on your machine.
+
+### 1. Install AWS CLI (Ubuntu 22.04)
+Run the following commands in your terminal to download and install the latest AWS CLI version:
+
+```bash
+# Install unzip if you don't have it
+sudo apt install -y unzip
+
+# Download and install AWS CLI
+curl "[https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip](https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip)" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Clean up installation files
+rm -rf aws awscliv2.zip
+
+---
+
 ### 🚀 Running the Data Pipeline
 The pipeline execution consists of two main steps.
 
