@@ -13,6 +13,13 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 BRONZE_DIR = os.path.join(PROJECT_ROOT, "data", "bronze")
 DB_PATH = os.path.join(PROJECT_ROOT, "warehouse.duckdb")
 TABLES = ["customers", "order_items", "orders", "products"]
+TABLE_LOCATIONS = {
+    "customers": "small",
+    "order_items": "small",
+    "orders": "small",
+    "products": "small",
+    "sap_sales": "big",
+}
 
 
 def get_memory_usage() -> float:
@@ -54,7 +61,8 @@ def setup_database(conn: duckdb.DuckDBPyConnection) -> None:
 
 def load_single_table(conn: duckdb.DuckDBPyConnection, table_name: str) -> None:
     """Loads a single Parquet file into DuckDB."""
-    file_path = f"{BRONZE_DIR}/{table_name}.parquet"
+    subfolder = TABLE_LOCATIONS.get(table_name, "small")
+    file_path = os.path.join(BRONZE_DIR, subfolder, f"{table_name}.parquet")
     query = f"CREATE OR REPLACE TABLE raw_{table_name} AS SELECT * FROM read_parquet('{file_path}');"
     conn.execute(query)
 
@@ -67,7 +75,7 @@ def load_tables(conn: duckdb.DuckDBPyConnection) -> None:
 
     for table_name in TABLES:
         # Here you can add logs of time and memory usage if you need
-        load_single_table(conn, table_name)
+        # load_single_table(conn, table_name)
 
         # create exact address of table
         file_path = f"{BRONZE_DIR}/{table_name}.parquet"

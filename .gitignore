@@ -11,6 +11,7 @@ data/
 # Python temporary files
 __pycache__/
 *.py[cod]
+*.pyc
 *$py.class
 
 # dbt files (ignore compiled models and logs)
