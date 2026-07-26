@@ -1,8 +1,6 @@
-import os
-
 import duckdb
 
-from generators.generate_big_data import main as generate_data
+from sap_tables_generators.generate_big_data import main as generate_data
 from loader.load_bronze import load_tables
 from prefect import flow, task
 

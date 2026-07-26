@@ -1,9 +1,9 @@
+# environment files
+.env/
+.env
+
 # uv virtual environment
 .venv/
-
-# DuckDB database files
-*.duckdb
-*.duckdb.wal
 
 # Generated data (raw Parquet files)
 data/
