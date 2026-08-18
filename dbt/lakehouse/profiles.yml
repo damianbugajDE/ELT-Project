@@ -1,0 +1,18 @@
+lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: athena
+      schema: sandbox
+      database: awsdatacatalog
+      region_name: eu-central-1
+      s3_staging_dir: s3://elt-project-dev/athena-results/
+      threads: 4
+
+    prod:
+      type: athena
+      schema: silver
+      database: awsdatacatalog
+      region_name: eu-central-1
+      s3_staging_dir: s3://elt-project-prod/athena-results/
+      threads: 8
